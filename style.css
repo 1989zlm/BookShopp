@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --black: #1c2a39;
+  --gray: #5c6a79;
+  --purple: #4c3db2;
+}
+/*header*/
+.navbar{
+    height: 120px;
+    margin-left: 10%;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    align-items: center;
+}
+.title{
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.menu,
+.menu_icons{
+    list-style: none;
+    display: flex;
+    font-size: 20px;
+    color: var(--gray);
+    cursor: pointer;
+}
+.menu .active{
+    color: var(--black);
+    font-weight: bold;
+}
+.menu li,
+.menu_icons li{
+    margin: 0 10px;
+}
+.menu_icons li{
+    color: var(--black);
+}
+.basket_icon{
+position: relative;
+}
+.basket_count{
+position: absolute;
+bottom: 0;
+right: -11.2px;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background-color: var(--black);
+color: white;
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 16px;
+font-weight: bold;
+}
+/* içeriği boşsa çalışır */
+.basket_count:empty {
+    display: none;
+}
+/*slider*/
+.slider{
+width: 80%;
+margin-left: auto;
+margin-right: auto;
+height: 600px;
+}
+.slider img{
+    height: 600px;
+}
+/* product */
+.store{
+    width: 80%;
+    margin-left: 10%;    
+}
+.book_card{
+    height: 400px;
+
+}
+.book_card img{
+    height: 400px;
+}
+.fos{
+    font-family: "Open Sans", sans-serif;
+}
+.gray{
+    color: var(--gray);
+}
+.book_star-rate .bi-star,
+.bi-star-fill {
+    color: #eeedf5;
+    font-size: 1.2rem;
+    margin-right: 5px;
+}
+.book_star-rate .bi-star-fill.active{
+    color: #f2c94c;
+}
+.book_description{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.old_price{
+    text-decoration: line-through;
+    color: var(--gray);
+
+}
+.btn_purple{
+    cursor: pointer;
+    border: 2px solid var(--purple);
+    color: var(--purple);
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: all 250ms ease-in-out;
+}
+.btn_purple:hover{
+    background-color: var(--purple);
+    color: white;
+}
+
+.filter_background{
+    width: 600px;
+    height: 900px;
+    position: absolute;
+    background-color: #efeef6;
+    left: 0;
+    z-index: -1;
+}
+.filter{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    min-height: 650px;
+    position: absolute;
+    justify-content: center;
+}
+.filter li {
+    color: var(--gray);
+    font-size: 16px;
+    margin-bottom: 2rem;
+    /* 1rem = 16px*/
+    cursor: pointer;
+    position: relative;
+}
+.filter li:hover{
+    color: var(--purple);
+}
+.filter li.active{
+    color: var(--purple);
+    font-size: 18px;
+    font-weight: bold;
+}
+.filter li.active::before{
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--purple);
+    border-radius: 50%;
+    position: absolute;
+    left: -13px;
+    top: 10px;
+}
+/* basket alanı*/
+.basket_modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #5c6a7950;
+    width: 100%;
+    height: 100vh;
+    z-index: -10;
+    opacity: 0;
+    transition: all 250ms ease-in-out;
+}
+.basket_modal.active{
+    opacity: 1;
+    z-index: 999;
+}
+.basket_items{
+    background-color: white;
+    width: 0;
+    float: right;
+    height: 100%;
+    position: relative;
+    transition: all 250ms ease-in-out;
+}
+.basket_modal.active .basket_items{
+    width: 450px;
+}
+.basket_items .bi-x{
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 48px;
+    cursor: pointer;
+    color: var(--black);
+}
+.basket_title{
+    margin-top: 80px;
+    color: #1c2a39;
+    text-align: center;
+    font-weight: bold;
+}
+.basket_list{
+    list-style: none;
+    padding: 0 10px;
+    margin-top: 48px;
+    height: 400px;
+    border: 1px solid red;
+    max-height: 700px;
+    overflow-y: auto;
+}
+.basket_item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+.basket_item-info{
+    width: 250px;
+}
+.basket_item-info .book_name{
+    font-size: 16px;
+    font-weight: bold;
+}
+.basket_item-info .book_price{
+    font-size: 16px;
+}
+.basket_item-info .book_remove{
+    cursor: pointer;
+    color: var(--black);
+}
+.basket_item .book_count{
+    font-size: 24px;
+    color: var(--black);
+    font-weight: bold;
+}
+.book_count .increase,
+.decrease{
+    cursor: pointer;
+    color: var(--purple);
+}
+.basket_total{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 16px;
+    align-items: center;
+    width: inherit;
+    
+}
+.basket_total button{
+    width: 250px;
+    margin-top: 5px;
+}
+.btnCheck{
+    display: none;
+}
